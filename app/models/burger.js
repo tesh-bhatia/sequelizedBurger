@@ -3,10 +3,19 @@ var Sequelize = require('sequelize')
 var sequelize = require('../config/connection')
 
 var Burger = sequelize.define("burgers", {
-    title: Sequelize.STRING,
-    author: Sequelize.STRING,
-    genre: Sequelize.STRING,
-    pages: Sequelize.INTEGER
+    burger_name: {
+        type: Sequelize.STRING,
+        validate: {
+            is: ["^[a-z]+$",'i'],
+            allowNull: false,
+            len: [1, 100],
+        }
+    },
+
+    devoured: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    }
 }, {
     timestamps: false
 })

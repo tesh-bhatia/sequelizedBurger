@@ -1,0 +1,26 @@
+<h1>Burgers</h1>
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+            <li>
+                <p>{{burger_name}}</p>
+                <button data-id={{id}}>Devour</button>
+            </li>
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h1>Devoured</h1>
+<ul>
+    {{#each burgers}}
+        {{#if devoured}}
+            <li>
+                <p>{{burger_name}}</p>
+                <button data-id={{id}}>Devour</button>
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>
+
+
+

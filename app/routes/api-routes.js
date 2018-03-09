@@ -1,10 +1,26 @@
 const Burger = require('../models/burger')
 
 module.exports = (app) => {
-    app.get('api/all', (req, res) =>{
+    console.log('Running...')
+    app.get('/api/all', (req, res) =>{
         Burger.findAll({})
             .then((result =>{
-                console.log(`Found items: ${result}`)
+                res.json(result)
             }))
+    })
+
+    app.post('/' , (req, res) => {
+        Burger.create({
+            burger_name: req.body.burger_name,
+        })
+    })
+
+    app.put('/', (req, res) => {
+        Burger.update({
+            devoured: true
+        },{
+        where: {
+            id: req.body.id
+        }})
     })
 }

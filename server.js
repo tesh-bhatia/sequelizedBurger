@@ -2,6 +2,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var exphbs = require("express-handlebars");
 require('dotenv').config()
 // Sets up the Express App
 // =============================================================
@@ -18,10 +19,14 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static("app/public"));
 
+// //Set up handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Routes
 // =============================================================
 require("./app/routes/api-routes.js")(app);
-// require("./app/routes/html-routes.js")(app);
+require("./app/routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================

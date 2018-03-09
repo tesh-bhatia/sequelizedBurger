@@ -4,7 +4,7 @@ var configs = {
   "development": {
     "username": "root",
     "password": process.env.LOCAL_PASSWORD,
-    "database": "wishes_db",
+    "database": "burgers_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
