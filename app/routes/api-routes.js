@@ -22,5 +22,6 @@ module.exports = (app) => {
         where: {
             id: req.body.id
         }})
+        
     })
 }

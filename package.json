@@ -25,6 +25,7 @@
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.10",
     "mysql2": "^1.5.2",
+    "nodemon": "^1.17.1",
     "sequelize": "^4.35.2"
   }
 }
