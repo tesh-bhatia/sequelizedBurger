@@ -9,7 +9,20 @@ $('.devour-btn').click((event) => {
         type: 'PUT',
         url: '/',
         data: {id: id}
-    }).then(
+    }).then(function(){ //this function has to be in es5 for some reason...
         location.reload()
-    )
+    })
+})
+
+$('#submit-btn').click((event) => {
+    event.preventDefault();
+    const burger_name = $('#burger_name').val()
+    
+    $.ajax({
+        type: 'POST',
+        url: '/',
+        data: {burger_name: burger_name}
+    }).then(function(){ //this function has to be in es5 for some reason...
+        location.reload()
+    })
 })

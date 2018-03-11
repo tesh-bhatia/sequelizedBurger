@@ -12,6 +12,8 @@ module.exports = (app) => {
     app.post('/' , (req, res) => {
         Burger.create({
             burger_name: req.body.burger_name,
+        }).then(() => {
+            res.status(200).end()
         })
     })
 
@@ -20,8 +22,15 @@ module.exports = (app) => {
             devoured: true
         },{
         where: {
-            id: req.body.id
-        }})
-        
+            id: Number(req.body.id)
+        }}).then((result) => {
+            if (result.changedRows == 0) {
+                // If no rows were changed, then the ID must not exist, so 404
+                return res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        })
+
     })
 }

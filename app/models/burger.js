@@ -6,8 +6,6 @@ var Burger = sequelize.define("burgers", {
     burger_name: {
         type: Sequelize.STRING,
         validate: {
-            is: ["^[a-z]+$",'i'],
-            allowNull: false,
             len: [1, 100],
         }
     },
